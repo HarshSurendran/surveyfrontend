@@ -10,7 +10,7 @@ const Submissions = () => {
   const [submissions, setSubmissions] = useState<ISurvey[]>([]);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalDocs, setTotalDocs] = useState(3);
+  const [totalDocs, setTotalDocs] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const itemsPerPage = 5;
 

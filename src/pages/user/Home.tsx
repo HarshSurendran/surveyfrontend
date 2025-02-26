@@ -35,7 +35,7 @@ const Home = () => {
         <p className="text-gray-600 mt-4 text-md md:text-lg">
           Our survey is designed to gather valuable insights from users like you. Your responses will help us create better experiences in the future. Your opinion matters!
         </p>
-          <button className="mt-6 px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition" onClick={() => navigate('/survey') }>
+          <button className="mt-6 px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition" onClick={() => navigate('/submissions') }>
           Get Submissions
         </button>
           </motion.div>
