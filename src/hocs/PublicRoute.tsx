@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 const PublicRoute: React.FC<IProtectedRouteProps> = ({ children }) => {
     const token = localStorage.getItem("token");
-    return token ? <Navigate to="/dashboard" replace /> : children;
+    return token ? <Navigate to="/admin/dashboard" replace /> : children;
 }
 
 export default PublicRoute

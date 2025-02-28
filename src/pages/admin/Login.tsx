@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../api/adminApi";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,9 +32,12 @@ const Login = () => {
             } else {
                 toast.error("Invalid credentials");
             }
-        } catch (error) {
+        } catch (error: unknown) {
+          if (axios.isAxiosError(error)) {
+            toast.error(error.response?.data.message || "Something went wrong, please try again.");
+          } else {
             toast.error("Something went wrong, please try again.");
-            console.error("Unexpected error occured", error);
+          }
         } finally {
             setLoading(false);
         }

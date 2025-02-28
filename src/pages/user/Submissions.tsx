@@ -5,6 +5,7 @@ import { ISurvey } from "../../Interfaces/ISurvey";
 import { getSurveys } from "../../api/surveyApi";
 import toast from "react-hot-toast";
 import Pagination from "../../components/Pagination";
+import LoadingAnimation from "../../components/LoadingAnimation";
 
 const Submissions = () => {
   const [submissions, setSubmissions] = useState<ISurvey[]>([]);
@@ -16,7 +17,7 @@ const Submissions = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log(search);
+      setCurrentPage(1);
       setSearchTerm(search);
     }, 500);
     return () => clearTimeout(timer);
@@ -65,7 +66,7 @@ const Submissions = () => {
         />
       </div>
 
-      <SubmissionsTable submissions={submissions} />
+      { submissions.length > 0 ? <SubmissionsTable submissions={submissions} /> : <LoadingAnimation /> }
       <Pagination
         currentPage={currentPage}
         pageSize={itemsPerPage}

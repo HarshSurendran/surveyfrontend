@@ -38,27 +38,7 @@ const Pagination: React.FC<IPaginationProps> = ({
   return (
     <div className="w-full px-2 py-4">
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        {/* Page size selector */}
-        {/* <div className="flex items-center gap-2"> */}
-          {/* <span className="text-sm text-gray-600">Rows per page:</span>
-          <Select
-            value={pageSize.toString()}
-            onValueChange={onPageSizeChange}
-          >
-            <SelectTrigger className="w-20">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="5">5</SelectItem>
-              <SelectItem value="10">10</SelectItem>
-              <SelectItem value="25">25</SelectItem>
-              <SelectItem value="50">50</SelectItem>
-              <SelectItem value="100">100</SelectItem>
-            </SelectContent>
-          </Select> */}
-        {/* </div> */}
 
-        {/* Pagination controls */}
         <div className="flex items-center gap-1">
           <button
         
@@ -116,8 +96,7 @@ const Pagination: React.FC<IPaginationProps> = ({
             <ChevronsRight className="h-4 w-4" />
           </button>
         </div>
-
-        {/* Items info */}
+        
         <div className="text-sm text-gray-600 hidden sm:block">
           {totalItems === 0 ? (
             <span>No items</span>

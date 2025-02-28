@@ -14,6 +14,7 @@ api.interceptors.request.use((config) => {
 export const login = async (loginData: {email: string, password: string}) => {
     try {
         const response = await api.post('/admin/login', loginData);
+        console.log(response, "response from login")
         if (response) {
             return response.data;
         }
