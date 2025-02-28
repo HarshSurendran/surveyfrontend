@@ -3,7 +3,7 @@ import { useState } from "react";
 import { submitForm } from "../../api/surveyApi";
 import { ISurvey } from "../../Interfaces/ISurvey";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Survey = () => {
   const [formData, setFormData] = useState<ISurvey>({
@@ -205,6 +205,10 @@ const Survey = () => {
           </button>
         </div>
       </motion.form>
+      <div className="flex justify-center items-center gap-2 mt-2">
+        <p>Want to see submitted surveys?</p>
+        <Link to="/submissions"><p className="text-blue-600">Click Here</p></Link>
+      </div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ const SubmissionsTable: React.FC<ISubmissionProps> = ({ submissions }) => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-4 bg- shadow-lg rounded-lg  w-full max-w-4xl overflow-x-auto"
+                className="mt-4 shadow-lg rounded-lg  w-full max-w-4xl overflow-x-auto"
             >
                 {submissions.length === 0 ? (
                     <p className="text-gray-500 text-center">No submissions found.</p>

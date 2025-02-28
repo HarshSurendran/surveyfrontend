@@ -6,6 +6,7 @@ import { getSurveys } from "../../api/surveyApi";
 import toast from "react-hot-toast";
 import Pagination from "../../components/Pagination";
 import LoadingAnimation from "../../components/LoadingAnimation";
+import { Link } from "react-router-dom";
 
 const Submissions = () => {
   const [submissions, setSubmissions] = useState<ISurvey[]>([]);
@@ -56,23 +57,42 @@ const Submissions = () => {
           Survey Submissions
         </h1>
       </motion.div>
-      <div className="mt-6 w-full max-w-4xl">
-        <input
-          type="text"
-          placeholder="Search by name..."
-          className="p-2 border rounded w-full mb-4"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mt-4 w-full max-w-4xl overflow-x-auto"
+      >
+        <div className="mt-6 w-full max-w-4xl">
+          <input
+            type="text"
+            placeholder="Search by name..."
+            className="p-2 border rounded w-full mb-4"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+      </motion.div>
 
-      { submissions.length > 0 ? <SubmissionsTable submissions={submissions} /> : <LoadingAnimation /> }
-      <Pagination
-        currentPage={currentPage}
-        pageSize={itemsPerPage}
-        totalItems={totalDocs}
-        onPageChange={handlePageChange}
-      />
+      {submissions.length > 0 ? <SubmissionsTable submissions={submissions} /> : <LoadingAnimation />}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="text-center"
+      >
+        <Pagination
+          currentPage={currentPage}
+          pageSize={itemsPerPage}
+          totalItems={totalDocs}
+          onPageChange={handlePageChange}
+        />
+
+        <div className="flex justify-center items-center gap-2">
+          <p>Didn't submit survey yet?</p>
+          <Link to="/survey"><p className="text-blue-600">Submit Survey</p></Link>
+        </div>
+      </motion.div>
     </div>
   );
 };
