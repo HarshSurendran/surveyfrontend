@@ -90,7 +90,9 @@ const SubmissionsTable: React.FC<ISubmissionProps> = ({ submissions }) => {
                             <p><strong>Email:</strong> {selectedSubmission.email}</p>
                             <p><strong>Phone:</strong> {selectedSubmission.phone}</p>
                             <p><strong>Address:</strong> {selectedSubmission.address}</p>
-                            <p><strong>Message:</strong> {selectedSubmission.message}</p>
+                            <div className="max-h-40 overflow-y-auto p rounded break-words">
+                                <p><strong>Message:</strong> {selectedSubmission.message}</p>
+                                </div>
                         </div>
                         <button
                             onClick={handleClose}
