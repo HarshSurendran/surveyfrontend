@@ -3,6 +3,7 @@ import { useState } from "react";
 import { submitForm } from "../../api/surveyApi";
 import { ISurvey } from "../../Interfaces/ISurvey";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Survey = () => {
   const [formData, setFormData] = useState<ISurvey>({
@@ -24,6 +25,8 @@ const Survey = () => {
     address: "",
     message: "",
   });
+
+  const navigate = useNavigate();
 
   const validateForm = () => {
     let valid = true;
@@ -66,6 +69,7 @@ const Survey = () => {
         const response = await submitForm(formData);
         if (response && response.status) {
           toast.success("Survey submitted successfully");
+          navigate("/submissions");
         } else {
           toast.error("Something went wrong, please try again.");
         }
