@@ -6,8 +6,9 @@ import { getSurveys } from "../../api/surveyApi";
 import toast from "react-hot-toast";
 import Pagination from "../../components/Pagination";
 import LoadingAnimation from "../../components/LoadingAnimation";
+import AdminHeader from "../../components/AdminHeader";
 
-const Submissions = () => {
+const Dashboard = () => {
   const [submissions, setSubmissions] = useState<ISurvey[]>([]);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -44,8 +45,11 @@ const Submissions = () => {
     setCurrentPage(page);
   };
 
-  return (
-    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center px-4 md:px-10 lg:px-20">
+    return (
+      <>
+        <AdminHeader />
+      <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center px-4 md:px-10 lg:px-20">
+          
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,8 +77,9 @@ const Submissions = () => {
         totalItems={totalDocs}
         onPageChange={handlePageChange}
       />
-    </div>
+            </div>
+            </>
   );
 };
 
-export default Submissions;
+export default Dashboard;
